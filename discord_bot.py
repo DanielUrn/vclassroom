@@ -55,7 +55,6 @@ class AdminBot(Bot):
     async def on_voice_state_update(self, member: discord.Member, before: discord.VoiceState, after: discord.VoiceState):
         channel = await self.fetch_channel(bot_command_channel)
         verify = isDocente(member)
-        print(verify)
         if verify:
             if after.channel:
                 students = get(member.guild.roles,name="Estudiante")
@@ -64,7 +63,7 @@ class AdminBot(Bot):
                     for user in users:
                         for role in user.roles:
                             if role == students:
-                                await member.send('El docente se ha unido al chat de voz')
+                                await member.send('El docente se ha unido al chat de voz: '+after.channel.name)
                 else:
                     await member.send('Añada el rol "Estudiante" al servidor')
         
