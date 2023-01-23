@@ -9,14 +9,11 @@ token = read_config('bot_token')
 server_name = read_config('discord_server')
 bot_command_channel = read_config('bot_command_channel')
 
-def isDocente(member, guilds):
-    for guild in guilds:
-        if(member.guild.id == guild.id):
-            for role in member.guild.roles:
-                if str(role) == "Docente":
-                    return True
-            return False
-        return False
+def isDocente(member):
+    for role in member.roles:
+        if str(role.name) == "Docente":
+            return True
+    return False
 
 class AdminBot(Bot):
     def __init__(self, **kwargs):
@@ -56,10 +53,20 @@ class AdminBot(Bot):
         context = {'author': ctx.author.name, 'channel': ctx.channel.name, 'command': ctx.command.name, 'status': 'success'}
     
     async def on_voice_state_update(self, member: discord.Member, before: discord.VoiceState, after: discord.VoiceState):
-        guilds = self.guilds
         channel = await self.fetch_channel(bot_command_channel)
-        isDocente = isDocente(member,guilds)
-        print(isDocente)
+        verify = isDocente(member)
+        print(verify)
+        if verify:
+            if after.channel:
+                students = get(member.guild.roles,name="Estudiante")
+                if students:
+                    users = member.guild.members
+                    for user in users:
+                        for role in user.roles:
+                            if role == students:
+                                await member.send('El docente se ha unido al chat de voz')
+                else:
+                    await member.send('Añada el rol "Estudiante" al servidor')
         
 
 
