@@ -39,8 +39,12 @@ class AdminBot(Bot):
         pass
     
     async def on_guild_join(self, guild:discord.Guild):
-        await guild.create_role(name='Estudiante', permissions=discord.Permissions(change_nickname=True))
-        await guild.create_role(name='Docente')
+        estudiante = get(guild.roles,name='Estudiante')
+        docente = get(guild.roles,name='Docente')
+        if(not estudiante):
+            await guild.create_role(name='Estudiante', permissions=discord.Permissions(change_nickname=True))
+        if(not docente):
+            await guild.create_role(name='Docente')
         await guild.owner.add_roles(get(guild.roles,name='Docente'))
 
     async def on_message(self,message):
