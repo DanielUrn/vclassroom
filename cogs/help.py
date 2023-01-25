@@ -45,7 +45,7 @@ class CustomHelp(commands.HelpCommand):
             name = command.qualified_name
             command_embed = self.get_command_signature(filter[0])
             help.add_field(name=name, value="".join(command_embed), inline=True)
-            help.add_field(name='How to use: ', value=get_content(content), inline=False)
+            help.add_field(name='Como usar: ', value=get_content(content), inline=False)
             await ctx.send(embed=help)
         else:
             raise commands.BadArgument("You probably don't have the Role to execute this command nor to get help of it")
