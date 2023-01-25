@@ -36,8 +36,12 @@ class AdminBot(Bot):
             print(f'Unable to load {filename[:-3]}')
 
     async def on_member_join(self, user: discord.User):
-        embed = get_embed("welcome")
-        await user.send(embed=embed)
+        pass
+    
+    async def on_guild_join(self, guild:discord.Guild):
+        await guild.create_role(name='Estudiante', permissions=discord.Permissions(change_nickname=True))
+        await guild.create_role(name='Docente')
+        await guild.owner.add_roles(get(guild.roles,name='Docente'))
 
     async def on_message(self,message):
         await bot.process_commands(message)
@@ -66,6 +70,7 @@ class AdminBot(Bot):
                                 await member.send('El docente se ha unido al chat de voz: '+after.channel.name)
                 else:
                     await member.send('Añada el rol "Estudiante" al servidor')
+    
         
 
 
