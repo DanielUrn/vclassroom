@@ -134,7 +134,7 @@ async def saveTema(data, guild):
     last = len(data)
     ref = db.collection('guilds').document(str(guild)).collection('temas').document(str(temas+1))
 
-    if(data[last].isnumeric()):
+    if(data[last-1].isnumeric()):
         ver = await ref.get()
         if(not ver.exists):
             await ref.set({
@@ -267,10 +267,11 @@ async def appendEstudiante(discordId, grupo, tema, guild):
 
     ver = await estudiante.get()
     verTema = await tema.get()
-    
+    print(cedulas)
     if(ver.exists and verTema.exists):
         cedulas = verTema.to_dict()['integrantes']
         cedulas.append(cedula)
+        
         if (capacidad):
             if(capacidad <= len(cedulas)):
                 return False

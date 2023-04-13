@@ -55,7 +55,7 @@ class Group(commands.Cog, name="Dinamica de grupos"):
             await ctx.send('Ha ocurrido un error con la eliminación del tema, por favor verifica que proporcionaste el numero de tema a borrar luego del comando, para más información prueba !help borrartema')
 
     @commands.command(name="creargrupo", rest_is_raw=True)
-    @commands.has_any_role("Estudiante", "Docente")
+    @commands.has_any_role("Estudiante")
     async def crearGrupo(self, ctx: commands.Context, *data):
         guild = ctx.guild.id
         if(data):
@@ -81,7 +81,7 @@ class Group(commands.Cog, name="Dinamica de grupos"):
             await ctx.send('Ha ocurrido un error con la eliminación del grupo, quizá te faltan o te sobran argumentos, recuerda que son un par de números separados por un espacio, para más información prueba !help borrargrupo')
     
     @commands.command(name="entrargrupo", rest_is_raw=True)
-    @commands.has_any_role("Estudiante", "Docente")
+    @commands.has_any_role("Estudiante")
     async def entrarGrupo(self, ctx: commands.Context, *data):
         guild = ctx.guild.id
         if(len(data)==2):
@@ -94,7 +94,7 @@ class Group(commands.Cog, name="Dinamica de grupos"):
             await ctx.send('Ha ocurrido un error con la integración del grupo, para más información prueba !help entrargrupo')
 
     @commands.command(name="salirgrupo", rest_is_raw=True)
-    @commands.has_any_role("Estudiante", "Docente")
+    @commands.has_any_role("Estudiante")
     async def salirGrupo(self, ctx: commands.Context, *data):
         guild = ctx.guild.id
         if(len(data)==2):
