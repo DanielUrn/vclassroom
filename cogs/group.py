@@ -19,8 +19,11 @@ class Group(commands.Cog, name="Dinamica de grupos"):
             embed = get_embed('lista')
             for i, tema in enumerate(temas):
                 content = tema
-                embed.add_field(name='Nombre', value=json.dumps(content[0]), inline=False)
-                embed.add_field(name='Integrantes', value=json.dumps(content[1:len(content)]))
+                embed.add_field(name='Tema ', value=(i+1), inline=True)
+                embed.add_field(name='Nombre', value=content["tema"], inline=True)
+                if("grupos" in content):
+                    for grupo in content["grupos"]:
+                        embed.add_field(name=f'Grupo '+str(grupo["#"]) , value=grupo, inline=False)
             await ctx.send(f'{ctx.author.mention}', embed=embed )
         else:
             await ctx.send('Ha ocurrido un error con la de los temas, para más información prueba !help temas')

@@ -11,7 +11,7 @@ def get_embed(type):
                         value="Para más información acerca de un `Comando` escribe: **!help (comando)**\n Para más información sobre una `Categoria` escribe **!help (categoría)**", inline=False)
     else:
         embed.add_field(name='Mensaje automático - No responder',
-                        value=get_content(type))
+                        value=get_content(type), inline=False)
 
     return embed
 
@@ -58,21 +58,21 @@ def get_content(type):
             Nombre, número de grupos, capacidad máxima por grupo (si disponible)
         """
 
-    elif type == "creargrupo":
+    elif type == "creartema":
         content = """
-            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
-            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
+            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para limitar los grupos a N estudiantes.
+            Si el último caracter es un número, será tomado como referencia para limitar el numero de integrantes por grupo
             Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            `!creartema (nombre del tema) (numero opcional)`
             Ejemplos:
-            `!grupos Movimiento rectilineo uniforme taller 3`
-            `!grupos Taller I`
+            `!creartema Movimiento rectilineo uniforme taller 3` (para maximo de integrantes)
+            `!creartema Taller I` (sin maximo especifico)
         """
     
-    elif type == "creargrupo":
+    elif type == "borrartema":
         content = """
-            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
-            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
-            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            Borrará un tema de la base de datos y sus grupos
+            `!borrartema (numero del tema)`
             Ejemplos:
             `!grupos Movimiento rectilineo uniforme taller 3`
             `!grupos Taller I`
@@ -80,72 +80,40 @@ def get_content(type):
 
     elif type == "creargrupo":
         content = """
-            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
-            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
-            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            Crea un grupo para un respectivo tema
+            `!creargrupo (numero del tema)`
+            El numero del grupo será decidido automáticamente en secuencia
             Ejemplos:
-            `!grupos Movimiento rectilineo uniforme taller 3`
-            `!grupos Taller I`
+            `!creargrupo 1`
+            `!creargrupo 17`
         """
 
-    elif type == "creargrupo":
+    elif type == "borrargrupo":
         content = """
-            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
-            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
-            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            Borra un grupo de un respectivo tema
+            Se debe especificar el número del grupo y del tema
+            `!borrargrupo (numero de grupo) (numero de tema)`
             Ejemplos:
-            `!grupos Movimiento rectilineo uniforme taller 3`
-            `!grupos Taller I`
+            `!borrargrupo 1 1`
+            `!borrargrupo 4 2`
         """
 
-    elif type == "creargrupo":
+    elif type == "entrargrupo":
         content = """
-            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
-            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
-            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            Se añadirá al grupo elegido el usuario que ha llamado el comando
+            `!entrargrupo (numero de grupo) (numero de tema)`
             Ejemplos:
-            `!grupos Movimiento rectilineo uniforme taller 3`
-            `!grupos Taller I`
+            `!entrargrupo 1 1`
+            `!entrargrupo 4 3`
         """
 
-    elif type == "creargrupo":
+    elif type == "salirgrupo":
         content = """
-            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
-            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
-            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            Se eliminará del grupo elegido el usuario que ha llamado el comando
+            `!salirgrupo (numero de grupo) (numero de tema)`
             Ejemplos:
-            `!grupos Movimiento rectilineo uniforme taller 3`
-            `!grupos Taller I`
-        """
-
-    elif type == "creargrupo":
-        content = """
-            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
-            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
-            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
-            Ejemplos:
-            `!grupos Movimiento rectilineo uniforme taller 3`
-            `!grupos Taller I`
-        """
-
-    elif type == "creargrupo":
-        content = """
-            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
-            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
-            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
-            Ejemplos:
-            `!grupos Movimiento rectilineo uniforme taller 3`
-            `!grupos Taller I`
-        """
-
-    elif type == "creargrupo":
-        content = """
-            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
-            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
-            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
-            Ejemplos:
-            `!grupos Movimiento rectilineo uniforme taller 3`
-            `!grupos Taller I`
+            `!salirgrupo 1 1`
+            `!salirgrupo 4 3`
         """
 
     elif content == "":

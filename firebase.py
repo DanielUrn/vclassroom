@@ -56,7 +56,6 @@ async def identifyStudent(cedula, nombre,discordId, guild):
             'nombre' : nombrec,
             'id': discordId
         })
-        print(await findStudent(discordId,guild))
         return True
     else:
         return False
@@ -104,18 +103,22 @@ async def listTemas(guild):
     ref = db.collection('guilds').document(str(guild)).collection('temas')
     ver = await ref.get()
     table = []
+    
     if(ver):
         for i, tema in enumerate(ver):
+            totalGroup = []
             groups = int(await nGrupo(guild,(i+1)))
             aux = 1
             while(aux<=groups):    
                 groupsRef = db.collection('guilds').document(str(guild)).collection('temas').document(str(i+1)).collection('grupos').document(str(aux))
-                ver = await groupsRef.get()
-                if(ver.exists):
-                    groupInfo = ver.to_dict()
-                    table.append([*tema.to_dict()["nombre"],*ver.to_dict()["integrantes"]])
+                verGroups = await groupsRef.get()
+                if(verGroups.exists):
+                    groupInfo = verGroups.to_dict()
+                    print(groupInfo)
+                    totalGroup.append({'#':aux,'integrantes':groupInfo["integrantes"]})
                 aux+=1
-        print(table)
+            if("nombre" in tema.to_dict()):
+                table.append({'tema':tema.to_dict()["nombre"],'grupos':totalGroup})
     
         return table
 
