@@ -51,8 +51,94 @@ def get_content(type):
         content = """
            La cedula que insertó ya se encontraba en la base de datos
        """
+        
+    elif type == "lista":
+        content = """
+            Todas los temas se muestran a continuación en orden:
+            Nombre, número de grupos, capacidad máxima por grupo (si disponible)
+        """
 
-    elif type == "grupos":
+    elif type == "creargrupo":
+        content = """
+            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
+            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
+            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            Ejemplos:
+            `!grupos Movimiento rectilineo uniforme taller 3`
+            `!grupos Taller I`
+        """
+    
+    elif type == "creargrupo":
+        content = """
+            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
+            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
+            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            Ejemplos:
+            `!grupos Movimiento rectilineo uniforme taller 3`
+            `!grupos Taller I`
+        """
+
+    elif type == "creargrupo":
+        content = """
+            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
+            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
+            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            Ejemplos:
+            `!grupos Movimiento rectilineo uniforme taller 3`
+            `!grupos Taller I`
+        """
+
+    elif type == "creargrupo":
+        content = """
+            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
+            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
+            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            Ejemplos:
+            `!grupos Movimiento rectilineo uniforme taller 3`
+            `!grupos Taller I`
+        """
+
+    elif type == "creargrupo":
+        content = """
+            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
+            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
+            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            Ejemplos:
+            `!grupos Movimiento rectilineo uniforme taller 3`
+            `!grupos Taller I`
+        """
+
+    elif type == "creargrupo":
+        content = """
+            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
+            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
+            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            Ejemplos:
+            `!grupos Movimiento rectilineo uniforme taller 3`
+            `!grupos Taller I`
+        """
+
+    elif type == "creargrupo":
+        content = """
+            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
+            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
+            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            Ejemplos:
+            `!grupos Movimiento rectilineo uniforme taller 3`
+            `!grupos Taller I`
+        """
+
+    elif type == "creargrupo":
+        content = """
+            Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
+            Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente
+            Si necesita utilizar números para el nombre de su tema, opte por usar números romanos
+            Ejemplos:
+            `!grupos Movimiento rectilineo uniforme taller 3`
+            `!grupos Taller I`
+        """
+
+    elif type == "creargrupo":
         content = """
             Necesita proporcionar el nombre de un tema para permitir a los estudiantes formar grupos, opcionalmente puede incluir un numero al final del comando para que automaticamente se creen grupos de N estudiantes.
             Si el último caracter es un número, será tomado como referencia para crear los grupos automáticamente

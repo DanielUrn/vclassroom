@@ -33,7 +33,6 @@ class DBcommands(commands.Cog, name="Registrar estudiantes"):
     async def borrar(self, ctx, *cedula):
             guild = ctx.guild.id
             res = await deleteStudent(cedula[0],guild)
-            print(res)
             if (res):
                 await ctx.send(f'{ctx.author.mention} Su estudiante cedula '+cedula[0]+' ha sido eliminado') 
             else:

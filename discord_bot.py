@@ -53,9 +53,7 @@ class AdminBot(Bot):
     async def on_command(self, ctx):
         context = {'author': ctx.author.name, 'channel': ctx.channel.name, 'command': ctx.command.name, 'status': 'invoked'}
 
-    async def on_command_error(self, ctx, error):
-        context = {'author': ctx.author.name, 'channel': ctx.channel.name, 'command': ctx.command.name, 'status': str(error)}
-        await ctx.send(f"An error occured: {str(error)}")
+
 
     async def on_command_completion(self, ctx):
         context = {'author': ctx.author.name, 'channel': ctx.channel.name, 'command': ctx.command.name, 'status': 'success'}
@@ -69,9 +67,9 @@ class AdminBot(Bot):
                 if students:
                     users = member.guild.members
                     for user in users:
-                        for role in user.roles:
-                            if role == students:
-                                await member.send('El docente se ha unido al chat de voz: '+after.channel.name)
+                        role = get(user.roles,name="Estudiante")
+                        if role == students:
+                            await user.send('El docente se ha unido al chat de voz: '+after.channel.name)
                 else:
                     await member.send('Añada el rol "Estudiante" al servidor')
     
