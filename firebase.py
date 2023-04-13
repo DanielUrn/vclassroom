@@ -47,13 +47,14 @@ async def deleteStudent(cedula, guild):
     else:
         return False
     
-async def identifyStudent(cedula, nombre, guild):
+async def identifyStudent(cedula, nombre,discordId, guild):
     nombrec = nombre[1:len(nombre)]
     update = db.collection(str(guild)).document(str(cedula))
     ver = await update.get()
     if(ver.exists):
         await update.update({
-            'nombre' : nombrec
+            'nombre' : nombrec,
+            'id': discordId
         })
         return True
     else:
